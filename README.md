@@ -1,1 +1,1 @@
-Exercícios de pI na UA (java)
+Exercícios de Programação I na UA (java)
