@@ -5,32 +5,33 @@ public class E703 {
 
 	static Scanner k = new Scanner(System.in);
 
-	//registo dos dados, global
-	static Statistics lista = new Statistics();
-
-
 	public static void main(String[] args) {
 	
-		double num;
+		Statistics registo = new Statistics();
 
 		System.out.println("Quando quiser terminar o programa apenas faça Ctrl+D (EOF).");
 
-		while(k.hasNextLine()){
+		
+		System.out.print("Número: ");
+		double num = k.nextDouble();
+		updateStats(num, registo);
+
+		while(k.hasNextDouble()){
 
 			System.out.print("Número: ");
 			num = k.nextDouble();
 
-			updateStats(num);
+			updateStats(num, registo);
 
 		}
 
-		System.out.printf("Mínimo da lista: %4.2f\nMaximo da Lista: %4.2f\nMédia da lista: %4.2f\n", lista.min, lista.max, mean());
-		System.out.printf("Números na lista: %3d\nSomatório da lista: %6.2f\nSomatório dos quadrados: %7.2f\n", lista.count, lista.sum, lista.sqsum);
-		System.out.printf("Variância da lista: %4.2f\n", variance());
+		System.out.printf("\n\n\n\nMínimo da lista: %4.2f\nMaximo da Lista: %4.2f\nMédia da lista: %4.2f\n", registo.min, registo.max, mean(registo));
+		System.out.printf("Números na lista: %3d\nSomatório da lista: %6.2f\nSomatório dos quadrados: %7.2f\n", registo.count, registo.sum, registo.sqsum);
+		System.out.printf("Variância da lista: %4.2f\n", variance(registo));
 	}
 
 	//função que dá update dos stats da lista
-	public static void updateStats(double num) {
+	public static void updateStats(double num, Statistics lista) {
 
 		//renova o minimo se necessario
 		if (num > lista.max) {
@@ -56,7 +57,7 @@ public class E703 {
 	}
 
 	//modulo pra calculo da media
-	public static double mean() {
+	public static double mean(Statistics lista) {
 
 		double media = lista.sum / lista.count;
 
@@ -64,9 +65,9 @@ public class E703 {
 	}
 
 	//modulo pra calculo da variancia
-	public static double variance() {
+	public static double variance(Statistics lista) {
 
-		double variancia = lista.sum / (lista.count - pow(mean(), 2));
+		double variancia = lista.sum / (lista.count - pow(mean(lista), 2));
 
 		return variancia;
 	}
@@ -76,9 +77,9 @@ public class E703 {
 
 class Statistics {
 
-	double min = 0;
-	double max = 0;
-	int count = 0;
-	double sum = 0;
-	double sqsum = 0;
+	double min;
+	double max;
+	int count;
+	double sum;
+	double sqsum;
 }
