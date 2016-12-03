@@ -31,23 +31,28 @@ public class E905 {
 
 		while (inFile.hasNext()) {
 
-			String linha = inFile.next();
-
-			if (linha.length() > 2) {
+			String linha = inFile.nextLine();
+			String imprimi = "";
+		
+			if (linha.charAt(0) == '/' && (linha.charAt(1) == '/' || linha.charAt(1) == '*')) {
 				
-				if (linha.charAt(0) == '/' && (linha.charAt(1) == '/' || linha.charAt(1) == '*')) {
+				if (inFile.hasNextLine()) {
 					
-					if (inFile.hasNextLine()) {
-						
-						inFile.nextLine();
-					}
-				} else {
-
-					escritor.println(linha);
+					inFile.nextLine();
 				}
 			} else {
 
-				escritor.println(linha);
+				for (int i = 0; i < linha.length(); i++) {
+
+					if (linha.charAt(i) == '\n') {
+						
+						imprimi += "\n";
+					
+					} else {
+
+						imprimi += linha.charAt(i);
+					}
+				}	
 			}
 		}
 

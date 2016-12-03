@@ -8,6 +8,8 @@ public class E906{
 		File entrada = new File(args[0]);
 		File exit = new File(args[1]);
 
+		Scanner kfile = new Scanner(entrada);
+
 		if (exit.exists()) {
 		
 			System.out.println("O ficheiro para escrita já existe.\nO programa vai ser terminado.");
@@ -40,22 +42,16 @@ public class E906{
 
 			k.close();
 			
-		} else if (!exit.exists() && entrada.canRead()) {
+		} 
 
-			exit.createNewFile();
+		PrintWriter rit = new PrintWriter(exit);
+			
+		while (kfile.hasNext()) {
 
-			Scanner kfile = new Scanner(entrada);
-			PrintWriter rit = new PrintWriter(exit);
-
-			while (kfile.hasNext()) {
-
-				String linha = kfile.next();
-
-				rit.println(linha);
-			}
-
-			kfile.close();
-			rit.close();
+			rit.println(kfile.nextLine());
 		}
+
+		kfile.close();
+		rit.close();
 	}
 }
