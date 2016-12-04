@@ -67,7 +67,7 @@ public class E703 {
 	//modulo pra calculo da variancia
 	public static double variance(Statistics lista) {
 
-		double variancia = lista.sum / (lista.count - pow(mean(lista), 2));
+		double variancia = sqrt((lista.sqsum / lista.count) - pow(mean(lista), 2)));
 
 		return variancia;
 	}
