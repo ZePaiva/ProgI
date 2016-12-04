@@ -34,26 +34,23 @@ public class E905 {
 			String linha = inFile.nextLine();
 			String imprimi = "";
 		
-			if (linha.charAt(0) == '/' && (linha.charAt(1) == '/' || linha.charAt(1) == '*')) {
+			for (int i = 0; i< linha.length(); i++) {
 				
-				if (inFile.hasNextLine()) {
+				if ((linha.charAt(i) == '/' && i + 1 < linha.length()) && (linha.charAt(i+1) == '/' || linha.charAt(i+1) == '*')) {
 					
-					inFile.nextLine();
+					i = linha.length() - 1;
+					
+				} else if (i - 1 > 0 && linha.charAt(i-1) == '*' && linha.charAt(i) == '/') {
+					
+					imprimi = "";
+				
+				} else {
+
+					imprimi += linha.charAt(i);
 				}
-			} else {
-
-				for (int i = 0; i < linha.length(); i++) {
-
-					if (linha.charAt(i) == '\n') {
-						
-						imprimi += "\n";
-					
-					} else {
-
-						imprimi += linha.charAt(i);
-					}
-				}	
 			}
+
+			escritor.println(imprimi);
 		}
 
 		escritor.close();

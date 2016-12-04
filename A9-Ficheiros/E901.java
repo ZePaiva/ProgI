@@ -38,7 +38,5 @@ public class E901 {
 		}
 
 		fil.close();
-
-		/*lolelelelelel*/
 	}
 }

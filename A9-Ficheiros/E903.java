@@ -5,7 +5,7 @@ public class E903 {
 
 	static Scanner k = new Scanner(System.in);
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException{
 
 		//array dos números
 		int numeros[] = new int[50];
@@ -79,9 +79,7 @@ public class E903 {
 
 				case 7:
 
-					try {
-						numeros = readFile();
-					} catch (IOException e) {;}
+					numeros = readFile();
 					break;
 
 				case 8:
@@ -91,9 +89,7 @@ public class E903 {
 
 				case 9:
 
-					try {
-						stampFile(numeros);
-					} catch (IOException e) {;}
+					stampFile(numeros);
 					break;
 
 				default:
