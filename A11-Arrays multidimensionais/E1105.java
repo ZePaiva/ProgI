@@ -160,7 +160,7 @@ public class E1105 {
 
 			System.out.printf("O contacto %d foi removido da lista.\n\n\n", position);
 
-			for(int i = 0; i < counter; i++) {
+			for(int i = poistion + 1; i < counter; i++) {
 
 				if (cont[i].tel == num && !existe) {
 					

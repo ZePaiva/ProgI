@@ -153,7 +153,7 @@ public class E1108{
 
 			System.out.printf("O livro %s foi removido.\n", b[li].title);
 
-			for (int i = 0; i < cnt; i++) {
+			for (int i = li + 1; i < cnt; i++) {
 				
 				if (b[li].cota == cota && !existe) {
 					
