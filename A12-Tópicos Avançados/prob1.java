@@ -107,6 +107,8 @@ public class prob1{
 			}
 		}
 
+		file.close();
+
 		return d;
 	}
 
